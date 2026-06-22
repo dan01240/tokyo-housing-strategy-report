@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>東京都内・近郊の家探し戦略マーケットレポート（2026年6月）</title>
+<style>
+  :root{
+    --ink:#1a2230; --sub:#5a6478; --line:#e2e6ee; --bg:#f6f8fb; --card:#ffffff;
+    --accent:#1f5fb0; --accent-soft:#e8f0fb;
+    --green:#1f8a4c; --green-soft:#e4f4ea;
+    --amber:#c98a00; --amber-soft:#fbf2db;
+    --red:#c0392b; --red-soft:#fbe7e4;
+    --navy:#16243d;
+    --shadow:0 1px 2px rgba(20,36,61,.04),0 4px 16px rgba(20,36,61,.06);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:system-ui,-apple-system,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;
+    color:var(--ink); background:var(--bg); margin:0; line-height:1.75;
+    font-size:16px; letter-spacing:.01em;
+  }
+  .wrap{max-width:980px; margin:0 auto; padding:0 20px 80px}
+  header.hero{
+    background:linear-gradient(135deg,#16243d 0%,#234373 100%); color:#fff;
+    padding:48px 20px 40px; margin-bottom:8px;
+  }
+  .hero-inner{max-width:980px;margin:0 auto}
+  .hero .eyebrow{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:#9fc0ec;margin:0 0 10px}
+  .hero h1{font-size:1.9rem;line-height:1.35;margin:0 0 14px;font-weight:800}
+  .hero p{margin:0;color:#cdd9ec;font-size:.95rem;max-width:760px}
+  .hero .meta{margin-top:18px;font-size:.78rem;color:#9fb4d4}
+
+  .topnote{
+    background:#fff7e6;border:1px solid #ecd8a3;border-radius:12px;
+    padding:14px 18px;margin:18px 0 6px;font-size:.86rem;color:#5a4a1c;line-height:1.6;
+  }
+  .topnote b{color:#7a5500}
+
+  .part-label{
+    display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;
+    color:var(--accent);background:var(--accent-soft);padding:5px 14px;border-radius:999px;margin:48px 0 10px;
+  }
+  .part-label.p2{color:var(--green);background:var(--green-soft)}
+  .part-label.p3{color:var(--sub);background:#eef1f6}
+  h2.part-title{font-size:1.5rem;font-weight:800;margin:0 0 6px;line-height:1.4;border-bottom:3px solid var(--navy);padding-bottom:12px}
+  .part-title small{display:block;font-size:.82rem;font-weight:500;color:var(--sub);margin-top:6px;letter-spacing:0}
+
+  section.block{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:26px 26px 24px;margin:18px 0;box-shadow:var(--shadow);
+  }
+  section.block > h3{
+    font-size:1.12rem;margin:0 0 4px;font-weight:800;color:var(--navy);
+  }
+  .lead{font-size:1.02rem;font-weight:700;color:var(--ink);margin:6px 0 18px;line-height:1.6}
+  .lead .hl{background:linear-gradient(transparent 62%,#ffe28a 62%);padding:0 2px}
+  p.note{font-size:.86rem;color:var(--sub);margin:14px 0 0}
+  .src{font-size:.74rem;color:#9aa3b4;margin-top:12px}
+
+  .figcap{font-size:.78rem;color:var(--sub);font-weight:600;margin:0 0 10px;letter-spacing:.02em}
+
+  .bars{margin:6px 0 4px}
+  .bar-row{display:grid;grid-template-columns:130px 1fr;gap:12px;align-items:center;margin:9px 0}
+  .bar-row .lab{font-size:.82rem;color:var(--sub);text-align:right;font-weight:600;line-height:1.3}
+  .bar-track{background:#eef1f6;border-radius:7px;height:30px;position:relative;overflow:hidden}
+  .bar-fill{height:100%;border-radius:7px;display:flex;align-items:center;justify-content:flex-start;
+    padding-left:10px;color:#fff;font-size:.8rem;font-weight:700;white-space:nowrap;min-width:fit-content}
+  .bf-blue{background:linear-gradient(90deg,#2a6cc0,#1f5fb0)}
+  .bf-navy{background:linear-gradient(90deg,#2c4d82,#16243d)}
+  .bf-grn{background:linear-gradient(90deg,#27a05a,#1f8a4c)}
+  .bf-amb{background:linear-gradient(90deg,#dca21f,#c98a00)}
+  .bf-red{background:linear-gradient(90deg,#d7503f,#c0392b)}
+  .bf-gray{background:linear-gradient(90deg,#9aa6b8,#7d899c)}
+  .bars.rate .bar-track{height:20px;background:#efeafb}
+  .bars.rate .bar-fill{background:linear-gradient(90deg,#8a6fd4,#6b4fc0);font-size:.76rem}
+  .bars.rate .bar-fill.r-hi{background:linear-gradient(90deg,#6b4fc0,#4a2f9e)}
+
+  .callout{border-radius:12px;padding:18px 20px;margin:16px 0;border:1px solid}
+  .co-conclusion{background:var(--green-soft);border-color:#bfe3cc}
+  .co-conclusion .big{font-size:1.18rem;font-weight:800;color:#13361f;line-height:1.5;margin:0 0 10px}
+  .co-conclusion ul{margin:0;padding-left:1.1em}
+  .co-conclusion li{margin:5px 0;font-size:.95rem;color:#234a31}
+  .co-warn{background:var(--amber-soft);border-color:#ecd8a3}
+  .co-warn strong{color:#7a5500}
+  .co-info{background:var(--accent-soft);border-color:#c5dbf3}
+  .co-info strong{color:var(--accent)}
+  .callout .ttl{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px;opacity:.85}
+
+  .matrix{position:relative;margin:24px 0 8px;padding:34px 0 26px 36px}
+  .mgrid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;
+    border-left:2px solid #c4ccda;border-bottom:2px solid #c4ccda}
+  .quad{padding:14px;border-radius:10px;min-height:108px}
+  .q-best{background:var(--green-soft);border:1.5px solid #9fd6b3}
+  .q-good{background:var(--accent-soft);border:1.5px solid #bdd6f2}
+  .q-mid{background:var(--amber-soft);border:1.5px solid #ecd8a3}
+  .q-low{background:#f1f3f7;border:1.5px solid #d8dde6}
+  .quad h5{margin:0 0 4px;font-size:.92rem;font-weight:800}
+  .quad p{margin:0;font-size:.78rem;color:var(--sub);line-height:1.5}
+  .quad .tag{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:6px;display:inline-block;margin-top:7px}
+  .tag-best{background:var(--green);color:#fff}
+  .tag-good{background:var(--accent);color:#fff}
+  .tag-mid{background:var(--amber);color:#fff}
+  .tag-low{background:#8893a5;color:#fff}
+  .axis-y{position:absolute;left:-2px;top:30px;font-size:.72rem;font-weight:700;color:var(--sub);writing-mode:vertical-rl}
+  .axis-x{text-align:center;font-size:.72rem;font-weight:700;color:var(--sub);margin-top:8px;padding-left:36px}
+  .axis-hint{font-size:.68rem;color:#9aa3b4;font-weight:500}
+  .axbadge{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.02em;padding:1px 8px;border-radius:5px;margin-left:6px;vertical-align:middle}
+  .ax-pct{background:#ede8fb;color:#5b3fb0}
+  .ax-yen{background:#e4f0e9;color:#1f8a4c}
+
+  .timeline{position:relative;margin:18px 0 4px;padding-left:8px}
+  .tl-step{position:relative;padding:0 0 22px 34px;border-left:2px solid #cdd6e3}
+  .tl-step:last-child{border-left:2px solid transparent;padding-bottom:0}
+  .tl-step::before{content:"";position:absolute;left:-9px;top:2px;width:16px;height:16px;border-radius:50%;
+    background:#fff;border:3px solid var(--accent)}
+  .tl-step.done::before{background:var(--accent)}
+  .tl-step.goal::before{border-color:var(--green);background:var(--green)}
+  .tl-when{font-size:.74rem;font-weight:800;color:var(--accent);letter-spacing:.04em}
+  .tl-step.goal .tl-when{color:var(--green)}
+  .tl-what{font-size:.94rem;font-weight:700;margin:2px 0 2px}
+  .tl-desc{font-size:.82rem;color:var(--sub);margin:0}
+
+  .tree{margin:16px 0 6px}
+  .tnode{background:var(--navy);color:#fff;border-radius:10px;padding:12px 16px;font-weight:700;font-size:.92rem;text-align:center;max-width:520px;margin:0 auto}
+  .tedge{position:relative;text-align:center;font-size:1rem;font-weight:800;color:#b3bdcd;margin:6px 0 2px}
+  .tbranch{display:flex;gap:14px;justify-content:center;margin:8px 0 2px;flex-wrap:wrap}
+  .tbox{flex:1;min-width:200px;max-width:320px;border-radius:10px;padding:13px 15px;border:1.5px solid}
+  .tbox .yn{font-size:.7rem;font-weight:800;letter-spacing:.08em;display:inline-block;padding:2px 9px;border-radius:6px;margin-bottom:7px;color:#fff}
+  .tbox h5{margin:0 0 4px;font-size:.9rem;font-weight:800}
+  .tbox p{margin:0;font-size:.78rem;color:var(--sub);line-height:1.5}
+  .tbox.t-yes{background:var(--green-soft);border-color:#9fd6b3}
+  .tbox.t-yes .yn{background:var(--green)}
+  .tbox.t-no{background:var(--amber-soft);border-color:#ecd8a3}
+  .tbox.t-no .yn{background:var(--amber)}
+
+  .check{list-style:none;padding:0;margin:8px 0 0}
+  .check li{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px dashed var(--line);font-size:.92rem}
+  .check li:last-child{border-bottom:none}
+  .check .cb{flex:none;width:20px;height:20px;border:2px solid var(--accent);border-radius:5px;margin-top:2px}
+  .check .pill{flex:none;font-size:.66rem;font-weight:800;padding:2px 7px;border-radius:5px;margin-left:auto;align-self:center}
+  .pill-high{background:var(--red-soft);color:var(--red)}
+  .pill-mid{background:var(--amber-soft);color:var(--amber)}
+
+  .signal{display:grid;gap:8px;margin:8px 0}
+  .sig-head,.sig-row{display:grid;grid-template-columns:1.4fr .8fr .8fr .8fr;gap:8px;align-items:center}
+  .sig-head{font-size:.72rem;font-weight:800;color:var(--sub);text-transform:uppercase;letter-spacing:.04em;padding:0 12px}
+  .sig-row{background:#fafbfd;border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-size:.86rem}
+  .sig-row .nm{font-weight:700;line-height:1.35}
+  .sig-row .nm small{display:block;font-weight:500;color:var(--sub);font-size:.74rem}
+  .mark{font-weight:800;text-align:center;font-size:1.05rem}
+  .m-best{color:var(--green)} .m-ok{color:var(--accent)} .m-mid{color:var(--amber)} .m-low{color:#9aa3b4}
+  .sig-row.win{border-color:#9fd6b3;background:var(--green-soft)}
+  .cc{text-align:center}
+
+  .scen{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0 4px}
+  .scard{border-radius:12px;padding:16px;border:1.5px solid}
+  .scard h5{margin:0 0 8px;font-size:.95rem;font-weight:800;display:flex;align-items:center;gap:7px}
+  .scard .dot{width:10px;height:10px;border-radius:50%}
+  .scard ul{margin:0;padding-left:1.05em}
+  .scard li{font-size:.8rem;margin:5px 0;color:var(--sub);line-height:1.45}
+  .scard li b{color:var(--ink)}
+  .sc-opt{background:var(--green-soft);border-color:#bfe3cc}
+  .sc-opt .dot{background:var(--green)}
+  .sc-neu{background:var(--accent-soft);border-color:#c5dbf3}
+  .sc-neu .dot{background:var(--accent)}
+  .sc-pes{background:var(--red-soft);border-color:#f0c5bd}
+  .sc-pes .dot{background:var(--red)}
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0 14px}
+  .stat{background:#fafbfd;border:1px solid var(--line);border-radius:11px;padding:14px;text-align:center}
+  .stat .num{font-size:1.45rem;font-weight:800;color:var(--accent);line-height:1.2}
+  .stat .num.warn{color:var(--red)}
+  .stat .cap{font-size:.74rem;color:var(--sub);margin-top:4px;line-height:1.4}
+
+  .srctable{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:8px}
+  .srctable th{text-align:left;background:#eef1f6;padding:9px 10px;font-size:.74rem;color:var(--sub);border-bottom:2px solid var(--line)}
+  .srctable td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .srctable td a{color:var(--accent);word-break:break-all;font-size:.78rem}
+  .badge{font-size:.66rem;font-weight:800;padding:2px 8px;border-radius:6px;white-space:nowrap}
+  .b-fix{background:var(--green-soft);color:var(--green)}
+  .b-est{background:var(--accent-soft);color:var(--accent)}
+  .b-chk{background:var(--amber-soft);color:var(--amber)}
+
+  .disclaimer{font-size:.8rem;color:var(--sub);background:#eef1f6;border-radius:10px;padding:14px 16px;margin-top:18px;line-height:1.6}
+
+  .stage{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0 6px}
+  .stg{border-radius:11px;padding:13px 14px;border:1.5px solid;position:relative}
+  .stg .yr{font-size:.72rem;font-weight:800;letter-spacing:.04em;display:inline-block;padding:2px 9px;border-radius:6px;color:#fff;margin-bottom:7px}
+  .stg .res{font-size:.95rem;font-weight:800;line-height:1.35;margin:0 0 3px}
+  .stg .dsc{font-size:.76rem;color:var(--sub);line-height:1.45;margin:0}
+  .stg-a{background:var(--amber-soft);border-color:#ecd8a3} .stg-a .yr{background:var(--amber)} .stg-a .res{color:#7a5500}
+  .stg-b{background:var(--accent-soft);border-color:#c5dbf3} .stg-b .yr{background:var(--accent)} .stg-b .res{color:var(--accent)}
+  .stg-c{background:var(--green-soft);border-color:#bfe3cc} .stg-c .yr{background:var(--green)} .stg-c .res{color:#13361f}
+  @media (max-width:680px){.stage{grid-template-columns:1fr}}
+
+  .multiple{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:center;margin:9px 0}
+  .multiple .lab{font-size:.82rem;color:var(--sub);text-align:right;font-weight:700;line-height:1.3}
+  .mtrack{background:#eef1f6;border-radius:7px;height:34px;position:relative;overflow:hidden;display:flex;align-items:center}
+  .mfill{height:100%;border-radius:7px;display:flex;align-items:center;padding-left:12px;color:#fff;font-weight:800;font-size:.86rem;white-space:nowrap}
+
+  @media (max-width:680px){
+    .hero h1{font-size:1.45rem}
+    .scen,.stats{grid-template-columns:1fr}
+    .mgrid{grid-template-rows:auto auto}
+    .quad{min-height:auto}
+    .bar-row{grid-template-columns:92px 1fr;gap:8px}
+    .bar-row .lab{font-size:.72rem}
+    .bar-fill{font-size:.72rem;padding-left:7px}
+    .sig-head,.sig-row{grid-template-columns:1.3fr .6fr .6fr .6fr;gap:5px}
+    .tbox{min-width:100%}
+    .multiple{grid-template-columns:84px 1fr;gap:8px}
+    .srctable th:nth-child(3),.srctable td:nth-child(3){display:none}
+  }
+  @media print{
+    body{background:#fff}
+    section.block,.scard,.stat{box-shadow:none}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Tokyo Metropolitan Housing Strategy &amp; Market Report</p>
+    <h1>東京都内・近郊の家探し<br>戦略マーケットレポート</h1>
+    <p>まず首都圏不動産の市場・金利・制度を客観的に俯瞰し（第1部）、その全体像を踏まえて「想定モデル世帯（高所得の個人事業主＋会社員の共働き／独立まもない頃で直近の申告所得が薄い）」は買うか・いつ・何を、を一般論として導く（第2部）。前提と出典は第3部に集約。</p>
+    <p class="meta">基準時点: 2026年6月 ／ 想定エリア: 都心アクセス良好な都内・近郊（通勤40分圏）／ 数値は前提・推定を含む</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="topnote">
+  <b>本レポートの位置づけ:</b> 本レポートは一般的なモデルケースに基づく市場分析であり、特定の個人に向けた個別の助言ではありません。登場する「想定モデル世帯」は典型例として設定した架空の世帯であり、金額・条件は説明のための一般化した目安です。実際の借入可否・税務・物件選びは、個別の状況に応じて金融機関・税理士・FP（ファイナンシャルプランナー）にご確認ください。
+</div>
+
+<!-- ============================== PART 1 ============================== -->
+<span class="part-label">PART 1 ／ 市場</span>
+<h2 class="part-title">第1部 不動産マーケットレポート
+  <small>客観・中立。個別事情を交えず、首都圏の金利・ローン制度・価格・需給・長期見通しを把握する。</small>
+</h2>
+
+<!-- 1-1 -->
+<section class="block">
+  <h3>1-1 金利環境</h3>
+  <p class="lead">マクロは<span class="hl">「金利上昇局面」で確定</span>。全期間固定（フラット35）は2か月で+0.82pt急騰し、制度開始以来初の3%超へ。変動とは依然3倍超の開き。</p>
+
+  <p class="figcap">図A｜フラット35 最頻金利の推移（21年以上35年以下・融資率9割以下）<span class="axbadge ax-pct">%軸</span><span style="font-weight:500;color:#9aa3b4">※細い紫バー＝金利水準（0%起点・軸0→4.0%）。後出の金額図とは別軸</span></p>
+  <div class="bars rate">
+    <div class="bar-row"><div class="lab">2026/4</div><div class="bar-track"><div class="bar-fill" style="width:59.75%">2.39%</div></div></div>
+    <div class="bar-row"><div class="lab">2026/5 (+0.32)</div><div class="bar-track"><div class="bar-fill" style="width:67.75%">2.71%</div></div></div>
+    <div class="bar-row"><div class="lab">2026/6 (+0.50)</div><div class="bar-track"><div class="bar-fill r-hi" style="width:80.25%">3.21% ←初の3%超</div></div></div>
+  </div>
+  <p class="note">背景: 日銀は2026年6月会合で政策金利を1.0%へ（31年ぶり高水準）。新発10年国債利回りは2.7%前後、機構債利回りも独自に上昇（4月2.97%→5月3.32%）し、固定金利を二重に押し上げている。</p>
+
+  <p class="figcap" style="margin-top:22px">図B｜金利タイプ別の比較（2026年6月・代表値）<span class="axbadge ax-pct">%軸</span><span style="font-weight:500;color:#9aa3b4">※細い紫バー＝金利水準（0%起点・軸0→4.0%）</span></p>
+  <div class="bars rate">
+    <div class="bar-row"><div class="lab">変動（ネット銀最優遇）</div><div class="bar-track"><div class="bar-fill" style="width:22.5%">0.9%</div></div></div>
+    <div class="bar-row"><div class="lab">フラット35（9割以下）</div><div class="bar-track"><div class="bar-fill" style="width:80.25%">3.21%</div></div></div>
+    <div class="bar-row"><div class="lab">フラット35（9割超）</div><div class="bar-track"><div class="bar-fill r-hi" style="width:83%">3.32%</div></div></div>
+    <div class="bar-row"><div class="lab">フラット50（長期優良）</div><div class="bar-track"><div class="bar-fill r-hi" style="width:84.5%">3.38%</div></div></div>
+  </div>
+  <p class="note" style="margin:8px 0 0">※バー長は<b>金利水準だけ</b>を同条件（9割以下）で並べたもの。<b>フラット50は「3.38%で50年フルに借りられる」わけではない</b>：市場の利用要件として<b>借入は購入価格のLTV60%（頭金4割）まで・残りはフラット35併用・申込44歳未満</b>がある（金利＝バー長とは別物の利用要件。詳細は図C）。</p>
+  <div class="callout co-info">
+    <p class="ttl">市場の読みどころ</p>
+    <strong>固定金利は歴史的高水準まで上昇済み。変動は当面0.9%台だが、日銀利上げで上昇局面に入った。</strong>
+    「今、全期間固定を確定できる」防御価値と「変動はまだ大幅に安いが先行き不確実」という両面が併存する。
+  </div>
+  <p class="src">出典: 住宅金融支援機構フラット35最新金利／日経「初の3%超」／日銀総裁会見・利上げ（政策金利1.0%）。詳細は第3部。</p>
+</section>
+
+<!-- 1-2 -->
+<section class="block">
+  <h3>1-2 ローン商品の地図</h3>
+  <p class="lead">長期化（45〜50年）は<span class="hl">月返済を確実に下げるが、総利息は跳ね上がる</span>。「最長年数 × 金利 × 完済年齢」で各商品の立ち位置を地図化する。</p>
+
+  <p class="figcap">図C｜長期ローン商品マップ（最長年数・金利・年齢制約）</p>
+  <div class="signal">
+    <div class="sig-head"><div>商品</div><div class="cc">最長</div><div class="cc">金利(26/6)</div><div class="cc">完済/申込</div></div>
+    <div class="sig-row"><div class="nm">フラット35<small>全期間固定・機構基準</small></div><div class="mark m-ok">35年</div><div class="cc">3.21%</div><div class="cc" style="font-size:.78rem">80歳未満</div></div>
+    <div class="sig-row"><div class="nm">フラット50<small>長期優良/認定管理のみ・LTV60%枠＋残りは35併用前提</small></div><div class="mark m-ok">50年</div><div class="cc">3.38%<br><small style="color:#9aa3b4">融資率9割以下</small></div><div class="cc" style="font-size:.78rem;color:var(--amber);font-weight:700">申込44歳未満</div></div>
+    <div class="sig-row"><div class="nm">民間超長期<small>住信SBI等・変動/固定選択</small></div><div class="mark m-ok">40-50年</div><div class="cc" style="font-size:.8rem">固定3%台<br>変動0.95%</div><div class="cc" style="font-size:.78rem">18-65歳</div></div>
+    <div class="sig-row"><div class="nm">変動金利<small>ネット銀・半年ごと見直し</small></div><div class="mark m-best">〜50年</div><div class="cc">0.9%前後</div><div class="cc" style="font-size:.78rem">80歳未満</div></div>
+  </div>
+
+  <p class="figcap" style="margin-top:22px">図D｜年数を延ばすトレードオフ（<b>借入1,000万あたり・固定</b>）— <span style="color:#1f5fb0;font-weight:800">青＝月返済</span> は下がるが <span style="color:#c0392b;font-weight:800">赤＝総利息</span> は跳ね上がる</p>
+  <div class="signal" style="margin-bottom:4px">
+    <div class="sig-head" style="grid-template-columns:104px 1fr 1fr;display:grid;gap:10px"><div>年数</div><div style="color:#1f5fb0">月返済（軸 0→4.0万/1,000万）</div><div style="color:#c0392b">総利息（軸 0→1,100万/1,000万）</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:104px 1fr 1fr;gap:10px;align-items:center;margin:6px 0">
+    <div class="lab" style="text-align:right">35年<br><small style="color:#9aa3b4">3.21%</small></div>
+    <div class="bar-track"><div class="bar-fill bf-blue" style="width:100%">月4.0万/1,000万</div></div>
+    <div class="bar-track"><div class="bar-fill bf-red" style="width:62%">約666万/1,000万</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:104px 1fr 1fr;gap:10px;align-items:center;margin:6px 0">
+    <div class="lab" style="text-align:right">45年<br><small style="color:#9aa3b4">3.36%</small><br><small style="color:#b87a00;font-weight:700">【推定/合成】</small></div>
+    <div class="bar-track"><div class="bar-fill" style="width:90%;background:repeating-linear-gradient(45deg,#2a6cc0,#2a6cc0 7px,#5b93d4 7px,#5b93d4 14px);border:1px dashed #1f5fb0">月3.6万/1,000万</div></div>
+    <div class="bar-track"><div class="bar-fill" style="width:88%;background:repeating-linear-gradient(45deg,#d7503f,#d7503f 7px,#e58375 7px,#e58375 14px);border:1px dashed #c0392b">約941万/1,000万</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:104px 1fr 1fr;gap:10px;align-items:center;margin:6px 0">
+    <div class="lab" style="text-align:right">50年<br><small style="color:#9aa3b4">3.38%</small></div>
+    <div class="bar-track"><div class="bar-fill bf-blue" style="width:87.5%">月3.5万/1,000万</div></div>
+    <div class="bar-track"><div class="bar-fill bf-red" style="width:100%">約1,074万/1,000万</div></div>
+  </div>
+  <p class="note" style="margin:8px 0 0">35→50年で月返済は▲0.5万/1,000万だが、総利息は約6割増（666万→1,074万/1,000万）。実額は借入額に比例（例: 5,000万なら月約20万・総利息約3,330万〜）。網掛けの45年3.36%のみ「3.21%＋40年超上乗せ0.15%」の【推定/合成】値、他は実在商品の確定値。</p>
+  <div class="callout co-warn">
+    <p class="ttl">トレードオフ</p>
+    <strong>超長期固定は「月々を下げるオプション」。だが総利息は最大化する。</strong>
+    定石は「長めで組んで月々を軽くし、余裕時に繰上返済して総利息を圧縮する」使い方。フラット50は長期優良・申込44歳未満・LTV60%と要件が厳しく、利用できる層は限られる。
+  </div>
+  <p class="src">出典: 住宅金融支援機構フラット50公式／住信SBI 50年ローン／ARUHI（40年超+0.15%）。試算は元利均等・全期間据置の【推定】。</p>
+</section>
+
+<!-- 1-2b 借入枠の決まり方（修正1） -->
+<section class="block">
+  <h3>1-2b 借入枠の決まり方 ── 「審査年収 × 約7倍」が天井</h3>
+  <p class="lead">物件価格でなく<span class="hl">「審査年収（＝直近の年収・所得）× 約7倍」が借入枠をほぼ決める</span>。年数を45〜50年に延ばすと倍率は約8〜9倍まで伸び、金利が低いほどさらに上がる。</p>
+
+  <p class="figcap">図B-2｜年収倍率の早見 ── 審査年収から借入枠の目安を読む（フラット35・35年・固定3%台）<span class="axbadge ax-yen">倍率</span></p>
+  <div class="multiple">
+    <div class="lab">年収 600万</div>
+    <div class="mtrack"><div class="mfill bf-blue" style="width:55%">借入の目安 約4,200万（×約7）</div></div>
+  </div>
+  <div class="multiple">
+    <div class="lab">年収 800万</div>
+    <div class="mtrack"><div class="mfill bf-blue" style="width:73%">約5,600万（×約7）</div></div>
+  </div>
+  <div class="multiple">
+    <div class="lab">年収 1,000万</div>
+    <div class="mtrack"><div class="mfill bf-navy" style="width:91%">約7,200万（×約7）</div></div>
+  </div>
+  <div class="multiple">
+    <div class="lab">年収 1,200万</div>
+    <div class="mtrack"><div class="mfill bf-navy" style="width:100%">約8,700万（×約7）</div></div>
+  </div>
+  <p class="note" style="margin:8px 0 0">※フラット35は<b>返済負担率35%（年収400万以上）</b>を上限とし、<b>「実際に適用する金利」をそのまま審査金利</b>に使う（民間の審査金利3〜4%とは別物で、枠が読みやすい）。固定3%台・35年だと結果的に<b>おおむね年収の約7倍</b>に着地する。年収が同じでも他借入（車・カードローン等）があると枠は縮む（年100万の他返済で枠は約2,000万縮む）。</p>
+
+  <p class="figcap" style="margin-top:20px">図B-3｜返済年数を延ばすと倍率はどこまで伸びるか（同じ年収・固定3%台）<span class="axbadge ax-yen">倍率</span></p>
+  <div class="multiple">
+    <div class="lab">35年</div>
+    <div class="mtrack"><div class="mfill bf-amb" style="width:70%">年収 × 約7倍</div></div>
+  </div>
+  <div class="multiple">
+    <div class="lab">45年</div>
+    <div class="mtrack"><div class="mfill bf-amb" style="width:80%">年収 × 約8倍</div></div>
+  </div>
+  <div class="multiple">
+    <div class="lab">50年</div>
+    <div class="mtrack"><div class="mfill bf-amb" style="width:90%">年収 × 約9倍</div></div>
+  </div>
+  <p class="note" style="margin:8px 0 0">同じ月返済の上限でも、年数を延ばすほど借りられる元本は増える＝倍率が上がる。さらに<b>変動など低金利を使えば倍率はもっと伸びる</b>（金利1%台なら月返済が3割軽くなり、枠は理論上1割以上拡大）。ただし長期化・低金利での枠拡大は「総利息増」「金利上昇リスク」と裏表である点に注意。</p>
+
+  <div class="callout co-info">
+    <p class="ttl">個人事業主・自営業者の特有レバー ── 申告所得の出し方が枠を左右する</p>
+    <strong>会社員は額面年収で見られるが、個人事業主は「確定申告した所得」で審査される。だから申告の作り方が、そのまま借入枠を動かす最大のレバーになる。</strong>
+    <ul style="margin:8px 0 0;padding-left:1.1em;font-size:.92rem;color:var(--accent)">
+      <li><b>直近の申告が薄いと枠が出ない。</b>独立まもない頃・開業直後・節税で所得を圧縮した直後などは、実力（実際の事業規模）があっても審査年収が小さく、枠が伸びない。</li>
+      <li><b>所得を厚く申告すれば枠は実力相応に伸びる。</b>2〜3期の申告実績を積み、所得をきちんと計上すれば、年収倍率の早見（図B-2）どおりに枠が拡大し、民間プロパー融資（低金利）も開きやすくなる。</li>
+      <li><b>これは「節税 ⇆ 借入枠」の二律背反。</b>所得を圧縮すれば税は軽くなるが借入枠は縮み、所得を厚く出せば借入枠は伸びるが税負担は増える。住宅取得を控えた個人事業主は、購入の数年前から申告方針を逆算するのが定石。</li>
+    </ul>
+  </div>
+  <p class="note" style="margin:10px 0 0;font-size:.8rem;color:#9aa3b4">※「約7倍」「8〜9倍」は固定3%台・返済負担率35%での結果的な目安であり、金利・年数・他借入・属性で変動する。金融機関ごとに審査基準は異なるため、実際の枠は事前審査で確認する必要がある。</p>
+  <p class="src">出典: 住宅金融支援機構（返済負担率35%／フラット35は実金利＝審査金利）。倍率は元利均等・固定3%台での試算【推定】。詳細は第3部。</p>
+</section>
+
+<!-- 1-3 -->
+<section class="block">
+  <h3>1-3 価格トレンド</h3>
+  <p class="lead"><span class="hl">「新築は最高値更新、中古は頭打ちの兆し」</span>という二相状態。市場は一本調子の上昇から転換点（高止まり〜調整の入口）に入った可能性が高い。</p>
+
+  <div class="stats">
+    <div class="stat"><div class="num">9,383万</div><div class="cap">首都圏 新築マンション平均（2025年度・前年比+15.3%・<b>5年連続最高</b>）</div></div>
+    <div class="stat"><div class="num warn">73か月ぶり</div><div class="cap">中古マンション 成約㎡単価が前年割れ（2026年5月）＝頭打ちの兆し</div></div>
+    <div class="stat"><div class="num">過去最少</div><div class="cap">新築供給戸数（2026年 約2.3万戸見通し）＝供給絞り込みが価格を下支え</div></div>
+  </div>
+
+  <p class="figcap">図E｜新築 vs 中古マンション（首都圏・価格の方向感）<span class="axbadge" style="background:#f1f3f7;color:#7d899c">定性</span><span style="font-weight:500;color:#9aa3b4">※矢印＝トレンドの向きだけを示すシグナル表示。金額・量の図ではない</span></p>
+  <div class="signal">
+    <div class="sig-head" style="grid-template-columns:1.2fr 56px 2fr;gap:10px"><div>区分</div><div class="cc">向き</div><div>市場の状態</div></div>
+    <div class="sig-row" style="grid-template-columns:1.2fr 56px 2fr;gap:10px"><div class="nm">新築（平均価格）</div><div class="cc" style="font-size:1.3rem;font-weight:800;color:var(--red)">↗</div><div style="font-size:.84rem">最高値更新が継続（㎡単価12か月連続で前年超）</div></div>
+    <div class="sig-row" style="grid-template-columns:1.2fr 56px 2fr;gap:10px"><div class="nm">中古（成約価格）</div><div class="cc" style="font-size:1.3rem;font-weight:800;color:var(--amber)">→</div><div style="font-size:.84rem">頭打ち（在庫増・売出と成約の乖離拡大）</div></div>
+    <div class="sig-row" style="grid-template-columns:1.2fr 56px 2fr;gap:10px"><div class="nm">中古（売出/在庫）</div><div class="cc" style="font-size:1.3rem;font-weight:800;color:var(--sub)">→</div><div style="font-size:.84rem">高止まり（売出と成約の乖離＝天井圏のサイン）</div></div>
+  </div>
+  <p class="note" style="margin:8px 0 0;font-size:.8rem;color:var(--sub)">※在庫の平均売出価格は<b>約6,643万円（前年比+30.3%）</b>、在庫件数は<b>45,804件（3か月連続増）</b>。売り希望価格が高止まりする一方で成約は伸びず、両者の乖離が天井圏のサイン。</p>
+  <p class="note"><b>戸建て:</b> マンションのような急騰はなく相対的に出遅れ。建物は早期に減価し<b>土地値が下支え</b>。マンションは駅近・希少立地ほど値持ちする、という性格の違いがある。</p>
+  <p class="src">出典: 日経（新築9,383万・5年連続最高）／不動産経済研究所／東京カンテイ系・Bloomberg（都心中古頭打ち）。詳細は第3部。</p>
+</section>
+
+<!-- 1-4 -->
+<section class="block">
+  <h3>1-4 需給・人口・エリア（都心40分圏の見方）</h3>
+  <p class="lead">人口減・空き家増は「一律下落」ではなく<span class="hl">立地による二極化／三極化</span>として現れる。都心アクセス良好な40分圏のうち、山手線北東部（日暮里・西日暮里・赤羽など）は相対的に割安かつ流動性良好。</p>
+
+  <p class="figcap">図F｜都心40分圏（山手線北東部）中古マンション 坪単価の目安（バー長＝価格）と流動性（右端バッジ＝質）</p>
+  <p class="note" style="margin:0 0 8px">量（坪単価＝バー長）と質（流動性＝バッジ）を<b>別カラムに分離</b>。バー長は坪単価のみに連動する。エリア名は市場相場を示す一般的な事例。</p>
+  <div class="bars">
+    <div class="bar-row" style="grid-template-columns:130px 1fr 56px"><div class="lab">日暮里（結節点）</div><div class="bar-track"><div class="bar-fill bf-navy" style="width:78.6%">坪 約356万</div></div><div class="cc" style="font-size:.72rem;font-weight:800"><span style="color:var(--green)">流動性◎</span></div></div>
+    <div class="bar-row" style="grid-template-columns:130px 1fr 56px"><div class="lab">西日暮里（再開発）</div><div class="bar-track"><div class="bar-fill bf-blue" style="width:71%">坪 約312-332万</div></div><div class="cc" style="font-size:.72rem;font-weight:800"><span style="color:var(--green)">流動性◎</span></div></div>
+    <div class="bar-row" style="grid-template-columns:130px 1fr 56px"><div class="lab">赤羽（5路線結節）</div><div class="bar-track"><div class="bar-fill bf-blue" style="width:100%">築浅 坪 約453万</div></div><div class="cc" style="font-size:.72rem;font-weight:800"><span style="color:var(--green)">流動性◎</span></div></div>
+    <div class="bar-row" style="grid-template-columns:130px 1fr 56px"><div class="lab">田端（割安・穴場）</div><div class="bar-track"><div class="bar-fill bf-amb" style="width:50%">坪 約227万</div></div><div class="cc" style="font-size:.72rem;font-weight:800"><span style="color:var(--accent)">流動性○</span></div></div>
+    <div class="bar-row" style="grid-template-columns:130px 1fr 56px"><div class="lab" style="color:#9aa3b4">川口（都県境・最安端）</div><div class="bar-track"><div class="bar-fill" style="width:44%;background:repeating-linear-gradient(45deg,#aeb8c8,#aeb8c8 7px,#c7cfdb 7px,#c7cfdb 14px);color:#5a6478;border:1px dashed #9aa3b4">坪 約200万前後 <span style="font-size:.62rem;font-weight:800;background:#fff;color:#9aa3b4;padding:0 4px;border-radius:4px;margin-left:2px">推定レンジ</span></div></div><div class="cc" style="font-size:.72rem;font-weight:800"><span style="color:var(--sub)">流動性△</span></div></div>
+  </div>
+  <p class="note" style="margin:8px 0 0"><b>川口（埼玉・都県境）</b>は圏内最安端のため<b>点線＝推定レンジ</b>で図内に残した（確定値なし）。京浜東北で都心方面アクセス可・再開発進行。<b>流動性は駅力次第（△）</b>で、価格重視で広さを取りたい場合の選択肢。</p>
+  <p class="note" style="margin:6px 0 0">※実線バー長は<b>赤羽の築浅坪453万＝100%とする比例</b>（最大値基準）。川口は確定値がないため点線・推定レンジで表示。西日暮里は前年+15%（再開発）。</p>
+  <div class="callout co-info">
+    <p class="ttl">エリアの中立評価</p>
+    <strong>結節点駅（日暮里・西日暮里・北千住・赤羽）＝流動性最強。割安駅（田端・町屋・川口）＝価格は出るが流動性は駅力次第。</strong>
+    西日暮里・三河島・赤羽台の再開発が中期の資産性を支える。ただし「エリアで安心」ではなく、同じ駅でも<b>駅距離×規模×管理</b>で資産性は大きく分かれる。
+  </div>
+  <p class="src">出典: マンションバリュー／ノムコム／住まいサーフィン（各駅相場・再開発）／社人研推計（人口・空き家）。詳細は第3部。</p>
+</section>
+
+<!-- 1-5 -->
+<section class="block">
+  <h3>1-5 長期見通し（5〜10年後の3シナリオ）</h3>
+  <p class="lead">確率は断定しない。<span class="hl">価格 × 金利のマトリクス</span>で楽観/中立/悲観を提示する。共通するのは「立地による二極化が進む」こと。</p>
+
+  <p class="figcap">図G｜価格×金利 3シナリオ</p>
+  <div class="scen">
+    <div class="scard sc-opt">
+      <h5><span class="dot"></span>楽観</h5>
+      <ul>
+        <li><b>金利:</b> 利上げ打ち止め〜小幅。フラット実勢 約3.0%に低下/横ばい</li>
+        <li><b>価格:</b> 供給最少・好立地需要で緩やかに上昇継続（年+1〜3%）</li>
+        <li><b>出口:</b> 結節点駅は底上げ、取得時より高く売れる余地</li>
+      </ul>
+    </div>
+    <div class="scard sc-neu">
+      <h5><span class="dot"></span>中立</h5>
+      <ul>
+        <li><b>金利:</b> 緩やかな追加利上げ。フラット実勢 3.2〜3.6%で高止まり</li>
+        <li><b>価格:</b> 高止まり後に横ばい〜小幅調整。<b>二極化進行</b></li>
+        <li><b>出口:</b> 好立地は新築時7〜8割を確保、物件選択が結果を左右</li>
+      </ul>
+    </div>
+    <div class="scard sc-pes">
+      <h5><span class="dot"></span>悲観</h5>
+      <ul>
+        <li><b>金利:</b> 想定超の上昇。フラット実勢 3.6%超〜4%</li>
+        <li><b>価格:</b> 中古から先行調整、首都圏全体で値下がり</li>
+        <li><b>出口:</b> 売却に時間・値引き。残債と売却額の逆転リスク</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout co-info">
+    <p class="ttl">市場としての中立結論</p>
+    <strong>市場だけを見れば「今が明確な買い時」とも「待てば必ず得」とも言えない、典型的な転換点。</strong>
+    新築高止まり × 中古頭打ち × 金利上昇が拮抗。市場の主要メッセージは「金利上昇局面である」こと——今買うなら固定の価値が高い一方、価格は金利に押されて上がりにくい（待っても暴騰しにくい）。
+  </div>
+  <p class="src">出典: 第1部各項の出典＋社人研推計・各社見通し（野村/三井住友DSアセット）。詳細は第3部。</p>
+</section>
+
+
+<!-- ============================== PART 2 ============================== -->
+<span class="part-label p2">PART 2 ／ 戦略</span>
+<h2 class="part-title">第2部 想定モデル世帯はどうすべきか
+  <small>第1部の市場像を、典型的なモデル世帯（高所得の個人事業主＋会社員の共働き／独立まもない頃で直近の申告所得が薄い／居住10年想定・永住は未定）に引きつけて一般論として結論化する。</small>
+</h2>
+
+<!-- 2-0 -->
+<section class="block">
+  <div class="callout co-info" style="margin:0 0 16px">
+    <p class="ttl">想定モデル世帯の設定（架空・一般化）</p>
+    <strong>世帯主＝高所得の個人事業主（独立・開業まもない時期で直近の確定申告が薄く、実力＜申告所得）、配偶者＝安定収入の会社員。自己資金は限定的、子育て期にさしかかる共働き世帯。希望は都心40分圏の広めの住まいだが、直近の借入枠が希望に届かない。</strong>
+    具体的な金額・人数・勤務先は特定を避けるため省略し、判断の「構造」だけを一般化して示す。
+  </div>
+  <div class="callout co-info" style="margin:0 0 16px">
+    <p class="ttl">第1部 → 第2部の橋渡し</p>
+    <strong>市場は中立（今買っても待っても損しにくい・暴騰もしにくい）。ならば結論を決めるのは、この世帯固有のボトルネック＝借入枠の不足である。</strong>
+    枠が希望に届かない以上、市場が中立な今こそ「待って枠を広げる」価値が勝つ——ゆえにこのモデル世帯の答えは「急がず待つ」になる。
+  </div>
+  <div class="callout co-conclusion">
+    <p class="ttl">結論</p>
+    <p class="big">急がず1〜2年待ち、申告所得を正常化して借入枠を広げ（できればプロパー融資へ）、出口の取りやすい駅近・省エネ中古マンションを基準線に。</p>
+    <ul>
+      <li><b>① 今は不利。</b>直近の申告が薄く、借入枠は<b>審査年収×約7倍</b>に縛られて希望に届かない。<span style="color:var(--green);font-weight:700">（→ 2-1）</span></li>
+      <li><b>② 居住年数で結論が反転。</b>10年なら賃貸有利、永住は完済後に購入が逆転。<b>家賃が上昇するなら購入の相対優位が早まる</b>。立地は両にらみの保険。<span style="color:var(--green);font-weight:700">（→ 2-2）</span></li>
+      <li><b>③ 待つ価値は枠拡大と低金利。</b>申告所得の正常化＋プロパー融資が開けば生涯利息が桁違いに縮む。<span style="color:var(--green);font-weight:700">（→ 2-3）</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2-1 -->
+<section class="block">
+  <h3>2-1 なぜ今は不利か ── 枠は「直近の薄い申告 × 約7倍」で決まる</h3>
+  <p class="lead">融資審査は<span class="hl">「実力」ではなく「直近の申告所得 × 約7倍」で見られる</span>。独立まもない頃で申告が薄いと、実際の事業規模が大きくても枠は伸びない。だが<b>申告所得を厚くすれば、枠は実力相応に伸びる</b>。</p>
+
+  <p class="figcap">図H｜借入枠は希望に届くか ── 申告所得を厚くするほど枠が伸びる（年収×約7倍）<span class="axbadge ax-yen">枠の目安</span></p>
+  <div class="bars">
+    <div class="bar-row"><div class="lab">今<br><small style="color:#9aa3b4">合算が薄い</small></div><div class="bar-track" style="border-right:2px dashed #c0392b"><div class="bar-fill bf-amb" style="width:55%">枠 小　<span style="font-weight:800">✕ 希望に届かない</span></div></div></div>
+    <div class="bar-row"><div class="lab">待つ<br><small style="color:#9aa3b4">申告を正常化</small></div><div class="bar-track" style="border-right:2px dashed #c0392b"><div class="bar-fill bf-blue" style="width:92%">枠 大　<span style="font-weight:800;color:#ffe0db">△ あと一歩</span></div></div></div>
+    <div class="bar-row"><div class="lab">厚く申告<br><small style="color:#9aa3b4">＋プロパー</small></div><div class="bar-track" style="border-right:2px dashed #c0392b"><div class="bar-fill bf-grn" style="width:100%">枠 十分　<span style="font-weight:800">○ 希望到達</span></div></div></div>
+  </div>
+  <p class="note" style="margin:10px 0 0;font-size:.86rem">※棒の長さは借入枠の相対イメージ（具体額は属性・金利で変動）。共通するのは<b>「審査年収（直近の申告所得）× 約7倍」が天井</b>という構造（図B-2参照）。直近申告が薄い「今」は枠が出ず、申告を正常化・厚くして合算年収が上がるほど、倍率どおりに枠が伸びる。</p>
+  <div class="callout co-warn">
+    <p class="ttl">核心 ── ボトルネックは「実力」と「審査値」の乖離</p>
+    <strong>個人事業主は「直近の確定申告した所得」で審査されるため、実際の事業規模（実力）が大きくても、申告が薄いと枠が出ない。これが独立まもない頃・開業直後の世帯に共通する落とし穴。</strong>
+    フラット35は実金利＝審査金利のため、頭金を入れても審査上限（年収倍率）は上がらない。希望額に届かせるには、次のいずれかで詰める:
+    <ul style="margin:8px 0 0;padding-left:1.1em;font-size:.9rem">
+      <li><b>(i) 合算年収（申告所得）を厚くする</b>。所得を実力相応に計上すれば、年収×約7倍で枠が伸びる（節税は犠牲になる＝二律背反）。</li>
+      <li><b>(ii) 頭金を投入して借入額を圧縮</b>し、必要な枠を下げる。</li>
+      <li><b>(iii) 物件価格を枠の範囲内に抑える</b>。</li>
+    </ul>
+  </div>
+  <p class="note" style="margin:10px 0 0;font-size:.82rem"><span class="axbadge" style="background:#e4f0e9;color:#1f8a4c">評価方針</span> 借入枠は<b>団信（団体信用生命保険）の金利上乗せ後の適用金利</b>で審査されるため、団信込みで辛めに見ると枠はやや目減りする。結論を保守側に倒すための見方である。</p>
+  <p class="src">出典: 工程2試算（35年・負担率35%・フラット35は実金利＝審査金利）。年収倍率・団信の扱い・差分検算は第3部に集約。</p>
+</section>
+
+<!-- 2-2 -->
+<section class="block">
+  <h3>2-2 居住年数で結論が反転する（＋家賃が上がるとどうなるか）</h3>
+  <p class="lead"><span class="hl">「何年住むか」が「買うべきか」をほぼ決める</span>。10年なら賃貸が明確に有利、<b>永住なら買いが合理的</b>。さらに<b>家賃が上昇するなら、購入の相対優位は前倒しで強まる</b>。</p>
+
+  <div class="callout co-conclusion" style="margin:0 0 16px">
+    <p class="ttl">永住の答え（一行）</p>
+    <p class="big" style="font-size:1.08rem"><b>永住なら買いが合理的</b> — 完済時点で <span style="color:var(--accent)">資産込み</span>なら逆転、<span style="color:#1f8a4c">純現金</span>でも約42年目に逆転する。住み続けるほど差は開く。</p>
+  </div>
+
+  <p class="note" style="margin:0 0 4px"><b>感度軸は2つの図に分ける。</b>算定基礎が違うバーを同じ軸に並べないため、図I-1（売る前提＝純コスト）と図I-2（売らない前提＝逆転チャート）を別建てにする（数値はモデル試算）。</p>
+
+  <p class="figcap" style="margin-top:16px">図I-1｜【売る前提】10年・20年の純コスト比較（出口控除後・同一基礎・中立）<span class="axbadge ax-yen">万円軸</span>— 短いほど安い＝有利</p>
+  <div class="bars">
+    <div class="bar-row"><div class="lab">10年・賃貸</div><div class="bar-track"><div class="bar-fill bf-grn" style="width:42%">約2,500万</div></div></div>
+    <div class="bar-row"><div class="lab">10年・購入</div><div class="bar-track"><div class="bar-fill bf-red" style="width:61%">約3,668万（+1,168万割高 ✕）</div></div></div>
+    <div class="bar-row"><div class="lab">20年・賃貸</div><div class="bar-track"><div class="bar-fill bf-grn" style="width:83%">約5,000万</div></div></div>
+    <div class="bar-row"><div class="lab">20年・購入</div><div class="bar-track"><div class="bar-fill bf-amb" style="width:99%">約5,959万（+959万・差は縮小）</div></div></div>
+  </div>
+  <p class="note" style="margin:6px 0 0">↑ 売却して残債を清算した後に正味出ていく現金（純コスト）どうしの<b>公正比較</b>。差は<b>10年 +1,168万 → 20年 +959万へ縮小</b>。<b>金額だけで購入が賃貸を上回るのは中立で20年でも未達</b>——居住想定10年は損益分岐のはるか手前で、購入が金額面で最も不利になる年限（家賃横ばい前提の場合）。</p>
+
+  <!-- 家賃上昇シナリオ（修正2） -->
+  <div class="callout co-info" style="margin-top:18px">
+    <p class="ttl">追加シナリオ ── 家賃が上昇すると賃貸 vs 購入はどう動くか</p>
+    <strong>上の比較は「家賃が横ばい」前提（現行の標準ケース）。だが家賃が年+1.5%で上がっていくと、賃貸の累積コストが膨らみ、購入の相対優位が前倒しで強まる。固定金利（フラット35）なら住居費がインフレに守られるのが効く。</strong>
+  </div>
+  <p class="figcap" style="margin-top:14px">図I-1b｜家賃が累積でいくら増えるか（横ばい vs 年+1.5%上昇・モデル試算）<span class="axbadge ax-yen">万円軸</span>— 長いほど賃貸の負担が重い</p>
+  <div class="bars">
+    <div class="bar-row"><div class="lab">10年・横ばい</div><div class="bar-track"><div class="bar-fill bf-grn" style="width:33%">基準</div></div></div>
+    <div class="bar-row"><div class="lab">10年・年+1.5%</div><div class="bar-track"><div class="bar-fill bf-amb" style="width:43%">＋約170万 重い</div></div></div>
+    <div class="bar-row"><div class="lab">35年・横ばい</div><div class="bar-track"><div class="bar-fill bf-grn" style="width:70%">基準</div></div></div>
+    <div class="bar-row"><div class="lab">35年・年+1.5%</div><div class="bar-track"><div class="bar-fill bf-red" style="width:100%">＋約2,500万 重い</div></div></div>
+  </div>
+  <p class="note" style="margin:6px 0 0">※家賃が年+1.5%で上昇すると、横ばい前提に比べて累積家賃は<b>10年で約+170万、35年で約+2,500万程度</b>多くなる（モデル試算・複利の効き）。賃貸は家賃上昇をそのまま負担するのに対し、<b>全期間固定（フラット35）で買えば返済額は完済まで不変＝住居費がインフレに守られる</b>。家賃上昇を織り込むほど、特に<b>永住</b>では購入の逆転が早まる（純現金の逆転は約42年目→家賃上昇下では数年〜十数年前倒し）。</p>
+  <div class="callout co-warn" style="margin-top:12px">
+    <strong>含意:</strong> 家賃が今後ずっと横ばいなら短期は賃貸有利のまま。だが<b>賃料がインフレ・需給で上昇局面に入るなら、固定金利での購入＝「将来の住居費を今の水準で固定する保険」</b>としての価値が増す。家賃見通しは賃貸/購入の損益分岐を動かす重要な感度軸であり、自分の住むエリアの賃料トレンドを必ず確認したい。
+  </div>
+
+  <p class="figcap" style="margin-top:22px">図I-2｜【売らない前提＝永住】いつ購入が得になるか（家賃横ばい・中立前提）</p>
+  <p class="figcap">3つの転換点を時間軸で（左＝まだ賃貸有利 → 右＝購入有利が決定的）</p>
+  <div class="stage">
+    <div class="stg stg-a">
+      <span class="yr">35年（完済）</span>
+      <p class="res">純現金は賃貸がやや安い</p>
+      <p class="dsc">完済で住居費が急減し、ここから差が詰まり始める。資産（無借金の自宅）を足せばこの時点で実質購入有利。</p>
+    </div>
+    <div class="stg stg-b">
+      <span class="yr">約42年目</span>
+      <p class="res">純現金でも逆転</p>
+      <p class="dsc">完済後は住居費が年240万→約30万に激減。以後毎年約210万ずつ差が縮み交差。家賃上昇下ではより早まる。</p>
+    </div>
+    <div class="stg stg-c">
+      <span class="yr">完済後ずっと</span>
+      <p class="res">購入有利が決定的</p>
+      <p class="dsc">毎年約210万差で開き続ける。長く住むほど優位は拡大。</p>
+    </div>
+  </div>
+
+  <p class="figcap" style="margin-top:18px">累積支出の逆転チャート（中立・純現金。実際に出ていく現金だけで比較）</p>
+  <p class="note" style="margin:0 0 8px">縦軸＝累積支出（純現金）／横軸＝経過年数。完済（35年）で購入線がほぼ平坦になり、賃貸は家賃が続いて上がるため、中立で<b>約42年目に交差</b>する。<b>点線＝家賃が年+1.5%で上昇する場合</b>の賃貸線で、交点はより手前に来る。</p>
+  <svg viewBox="0 0 920 360" preserveAspectRatio="xMidYMid meet" width="100%" style="display:block;max-height:340px;margin:10px 0 4px">
+    <line x1="70" y1="18" x2="70" y2="320" stroke="#c4ccda" stroke-width="2"/>
+    <line x1="70" y1="320" x2="900" y2="320" stroke="#c4ccda" stroke-width="2"/>
+    <line x1="70" y1="204.8" x2="900" y2="204.8" stroke="#e8ecf2" stroke-width="1"/>
+    <line x1="70" y1="87.7" x2="900" y2="87.7" stroke="#e8ecf2" stroke-width="1"/>
+    <text x="62" y="208" text-anchor="end" font-size="13" fill="#5a6478">5,000万</text>
+    <text x="62" y="91" text-anchor="end" font-size="13" fill="#5a6478">1億</text>
+    <text x="62" y="22" text-anchor="end" font-size="13" fill="#9aa3b4">1.25億</text>
+    <line x1="651" y1="18" x2="651" y2="320" stroke="#cdd6e3" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <line x1="757" y1="18" x2="757" y2="320" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5 4" opacity=".5"/>
+    <!-- 賃貸線(緑・横ばい) -->
+    <polyline points="70,320 402,202 651,117.0 757,79.7 900,29.6" fill="none" stroke="#1f8a4c" stroke-width="3"/>
+    <!-- 賃貸線(点線・年+1.5%上昇)：より急に立ち上がり交点が手前に -->
+    <polyline points="70,320 402,182 651,84 690,72 900,2" fill="none" stroke="#1f8a4c" stroke-width="2.4" stroke-dasharray="7 5" opacity=".75"/>
+    <!-- 購入線(赤) -->
+    <polyline points="70,320 402,170 651,84.2 757,79.7 900,73.7" fill="none" stroke="#c0392b" stroke-width="3"/>
+    <circle cx="757" cy="79.7" r="6" fill="#16243d"/>
+    <circle cx="690" cy="72" r="5" fill="#1f8a4c" opacity=".8"/>
+    <text x="250" y="200" font-size="14" font-weight="700" fill="#1f8a4c">賃貸（家賃が続く↗）</text>
+    <text x="250" y="160" font-size="14" font-weight="700" fill="#c0392b">購入（完済で平坦→）</text>
+    <text x="640" y="206" font-size="12.5" font-weight="700" fill="#1f8a4c" opacity=".85">┄ 家賃 年+1.5%上昇</text>
+    <text x="757" y="50" text-anchor="middle" font-size="14" font-weight="800" fill="#16243d">約42年目で純現金が逆転（横ばい時）</text>
+    <text x="700" y="100" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1f8a4c">上昇下は前倒し</text>
+    <text x="70" y="338" text-anchor="middle" font-size="13" fill="#9aa3b4">0年</text>
+    <text x="651" y="338" text-anchor="middle" font-size="12.5" font-weight="700" fill="#5a6478">35年＝完済</text>
+    <text x="900" y="338" text-anchor="end" font-size="13" fill="#9aa3b4">50年</text>
+  </svg>
+  <p class="note" style="margin:2px 0 0;font-size:.78rem;color:var(--sub)">※評価軸は2つ。<b><span style="color:#1f8a4c">純現金</span></b>＝実際に出ていく現金だけで比較（交点約42年目はこの最保守ライン）。<b><span style="color:var(--accent)">資産込み</span></b>＝完済後に残る無借金の自宅資産を足して比較（足せば逆転は完済時点に前倒し）。<b>点線＝家賃が年+1.5%で上がる場合</b>で、賃貸の累積が膨らみ交点はさらに手前に来る。いずれもモデル試算であり、出口価格・固定資産税・管理修繕費の前提に依存する。</p>
+  <div class="callout co-info" style="margin-top:14px">
+    <p class="ttl">含意 — どちらに転ぶか未定だからこそ</p>
+    <strong>10年なら賃貸有利、永住なら完済後に購入が逆転。家賃上昇を見込むほど購入の優位は前倒し。「売る前提」と「売らない前提」は評価軸が違うため別図にした。</strong>
+    居住年数も家賃見通しも不確実だからこそ、立地（流動性）を保険として譲らない＝どちらに転んでも後悔しにくい。
+  </div>
+  <p class="src">出典: 工程6試算（10年純コスト約3,668万・20年純コスト約5,959万・永住は総支出ベース 純現金の逆転約42年目・資産込みで残る無借金資産あり）。家賃上昇分（10年≈+170万／35年≈+2,500万）は年+1.5%複利のモデル試算【推定】。詳細は第3部。</p>
+</section>
+
+<!-- 2-3 -->
+<section class="block">
+  <h3>2-3 ローン戦略</h3>
+  <p class="lead">月々の負担は<span class="hl">現在の家賃を基準線</span>に。借入を抑えれば家賃並み、無理に枠いっぱい借りると家賃の1.6倍に膨らむ。プロパー（低金利）が開けば景色が変わる。</p>
+  <p class="note" style="margin:0 0 14px;font-size:.8rem;color:var(--sub);padding:8px 12px;background:#f1f3f7;border-radius:8px;border:1px dashed #d8dde6"><b>用語｜プロパー融資</b>＝銀行が独自審査で出す（保証会社を通さない）低金利ローン。個人事業主の場合、事業実績（2〜3期の申告）が積み上がるほど通りやすくなる。</p>
+
+  <p class="figcap">図J｜月々負担の比較（現家賃20万と同じ「万円/月」軸・すべて35年・モデル試算）<span class="axbadge ax-yen">万円/月軸</span></p>
+  <div class="bars">
+    <div class="bar-row"><div class="lab">現家賃（基準）</div><div class="bar-track"><div class="bar-fill bf-gray" style="width:50%">20.0万</div></div></div>
+    <div class="bar-row"><div class="lab">枠相応・フラット35</div><div class="bar-track"><div class="bar-fill bf-grn" style="width:50%">約20万（家賃並み）</div></div></div>
+    <div class="bar-row"><div class="lab">希望額・プロパー変動1%台</div><div class="bar-track"><div class="bar-fill bf-blue" style="width:61%">約22.6〜24.5万（1.0%→1.5%／低金利で枠拡大可）</div></div></div>
+    <div class="bar-row"><div class="lab">希望額・フラット35</div><div class="bar-track"><div class="bar-fill bf-red" style="width:80%">約32万（家賃の1.6倍）</div></div></div>
+  </div>
+  <ul style="list-style:none;padding:0;margin:10px 0 0">
+    <li style="padding:7px 0;border-bottom:1px dashed var(--line);font-size:.9rem"><b>① 金利が月々を最も大きく動かす。</b>同じ借入額・35年でも、固定3%台なら月32万級、プロパー変動なら1.0%で約22.6万／1.5%で約24.5万（変動は単一の楽観値でなく上昇余地のある幅で読む）。</li>
+    <li style="padding:7px 0;border-bottom:1px dashed var(--line);font-size:.9rem"><b>② 総支出は管理費等で月+2〜2.5万。</b>購入は管理費・修繕積立金・固定資産税が月返済に上乗せ。総支出で家賃並みに収めるなら、ローン返済は枠相応でもやや窮屈。</li>
+    <li style="padding:7px 0;font-size:.9rem"><b>③ プロパーが開けば景色が変わる。</b>生涯利息は固定比で大きく改善しうる（試算・分岐は <b>2-7 図N</b> に集約）。</li>
+  </ul>
+  <p class="note" style="margin:8px 0 0;font-size:.78rem;color:#9aa3b4">参考係数（35年・元利均等）: プロパー変動1.0%＝28,229円/1,000万・1.5%＝30,618円/1,000万・固定3.32%＝40,293円/1,000万。</p>
+  <p class="src">出典: 工程2・工程3（プロパー1% vs フラット3.56%の生涯利息差はモデル試算で数千万規模・月々係数）。詳細は第3部。</p>
+</section>
+
+<!-- 2-4 -->
+<section class="block">
+  <h3>2-4 税務の要点</h3>
+  <p class="lead">住宅ローン控除の<span class="hl">主役は安定収入の会社員側</span>。高所得の個人事業主側は、実力どおり申告すると所得制限（合計所得2,000万超）で対象外になりうる。名義は控除を使い切れる側に寄せるのが定石。</p>
+
+  <p class="figcap">図K｜住宅ローン控除を「誰が・いくらまで」取れるか</p>
+  <div class="signal">
+    <div class="sig-head"><div>名義</div><div class="cc">控除可否</div><div class="cc">使い切り残高</div><div class="cc">方針</div></div>
+    <div class="sig-row win"><div class="nm">会社員側<small>安定収入・所得制限内</small></div><div class="mark m-best">◎</div><div class="cc" style="font-size:.82rem">納税額が<br>使い切りの天井</div><div class="cc" style="font-size:.78rem;font-weight:700;color:var(--green)">控除はここに寄せる</div></div>
+    <div class="sig-row"><div class="nm">個人事業主側<small>実力申告だと所得制限超</small></div><div class="mark m-mid">△</div><div class="cc" style="font-size:.82rem">所得次第<br>(捨て前提が安全)</div><div class="cc" style="font-size:.78rem">枠を優先し控除は捨てる</div></div>
+  </div>
+  <div class="callout co-info">
+    <p class="ttl">名義・持分の鉄則</p>
+    <strong>出資割合＝登記持分を厳守（ズレると贈与税）。控除を取る側を連帯債務者/ペアローン契約者にする（連帯保証では控除不可）。</strong>
+    在宅の作業部屋は事業按分で経費化でき、按分50%以下なら控除と併用OK。住宅取得等資金贈与の非課税特例（省エネ住宅で最大1,110万/人）は2026年末まで。
+  </div>
+  <div class="callout co-warn" style="margin-top:10px">
+    <p class="ttl">混同注意 — 2つの天井のうち「低い方」が効く</p>
+    <strong>「物件性能で決まる借入限度額」と「納税額で決まる使い切り残高」は別物。実際に控除されるのは低い方まで。</strong>
+    <div class="bars" style="margin:12px 0 4px">
+      <div class="bar-row" style="grid-template-columns:160px 1fr"><div class="lab">① 物件が決める上限<br><small style="font-weight:500">借入限度額・性能で決まる</small></div><div class="bar-track"><div class="bar-fill bf-blue" style="width:90%">省エネ(ZEH) 4,500万／長期優良 5,000万</div></div></div>
+      <div class="bar-row" style="grid-template-columns:160px 1fr"><div class="lab">② 納税が決める実効上限<br><small style="font-weight:500">使い切れる残高</small></div><div class="bar-track"><div class="bar-fill bf-amb" style="width:80%">控除を取る側の納税額（所得税＋住民税）まで</div></div></div>
+    </div>
+    <p style="margin:8px 0 0;font-size:.88rem">①まで借りても、納税額（②）を超える残高分は控除されない＝<b>min(①, ②)が実際の控除枠</b>。<b>名義配分は控除を取る側の納税余力（②）に合わせる</b>のが要点。</p>
+  </div>
+  <p class="src">出典: 工程5（国税庁・国交省・総務省）。最終判断は税理士確認。詳細は第3部。</p>
+</section>
+
+<!-- 2-5 -->
+<section class="block">
+  <h3>2-5 物件タイプ</h3>
+  <p class="lead">居住10年・出口前提では<span class="hl">流動性が最優先</span>。それを最も満たす駅近・省エネ中古マンションを基準線に置く。</p>
+
+  <p class="figcap">図L｜物件タイプ 2軸マトリクス（横=流動性/出口 ・ 縦=広さ/住み心地）</p>
+  <div class="matrix">
+    <div class="axis-y">広さ・住み心地 →</div>
+    <div class="mgrid">
+      <div class="quad q-mid">
+        <h5>戸建て×中古</h5>
+        <p>広いが流動性最弱・性能/控除が限定・個別リスク多。永住傾斜が極端でない限り回避。</p>
+        <span class="tag tag-low">△ 避ける</span>
+      </div>
+      <div class="quad q-good">
+        <h5>戸建て×新築（準近郊・駅近）</h5>
+        <p>広さ・ワークルーム・庭が◎。永住なら土地が残り住居費最小。10年売却の流動性はマンションに劣る。</p>
+        <span class="tag tag-good">○ 次点（永住寄り）</span>
+      </div>
+      <div class="quad q-low">
+        <h5>マンション×新築</h5>
+        <p>性能で金利優遇大だが、新築プレミアム剥落が10年出口の重し。同価格で面積が圧縮。</p>
+        <span class="tag tag-mid">○</span>
+      </div>
+      <div class="quad q-best">
+        <h5>マンション×中古（駅近・築浅・省エネ）</h5>
+        <p>流動性最高・プレミアム剥落後で出口下落小。広め（80㎡級）を狙えば居室＋ワークルーム可。<b>基準線</b>。</p>
+        <span class="tag tag-best">◎ 推奨</span>
+      </div>
+    </div>
+    <div class="axis-x">流動性 低 ←　　　　　　　　　　　→ 流動性 高（出口の取りやすさ）<br><span class="axis-hint">居住10年=出口前提では横軸（流動性）の重みが最大</span></div>
+  </div>
+  <div class="callout co-conclusion">
+    <p class="ttl">基準線</p>
+    <p class="big" style="font-size:1.02rem">都心40分圏の結節点〜準結節点駅・徒歩7分以内・80㎡級・管理良好・省エネ（ZEH/長期優良）の築浅中古マンション。</p>
+    <ul><li>「永住か10年か未定」なので、<b>立地（流動性）は絶対に譲らず</b>、広さは予算（待って枠拡大）で詰める＝どちらに転んでも後悔しにくい。広さ最優先で永住傾斜が強いなら駅近の新築戸建ても可。</li></ul>
+  </div>
+  <p class="src">出典: 工程4・工程6（10年=駅近中古マンション／永住=戸建て評価上昇／両どり指針）。詳細は第3部。</p>
+</section>
+
+<!-- 2-6 -->
+<section class="block">
+  <h3>2-6 ロードマップ</h3>
+  <p class="lead">いきなり買うのではなく、<span class="hl">「申告の正常化 → 枠の確認 → 物件実査 → 購入」</span>という順で待ち時間を価値に変える。</p>
+
+  <p class="figcap">図M｜タイムライン（今 → 1〜2年）</p>
+  <div class="timeline">
+    <div class="tl-step done">
+      <div class="tl-when">今</div>
+      <div class="tl-what">賃貸を継続しながら準備に着手</div>
+      <p class="tl-desc">会社員側の通年フル就労を確実に。他借入（車・カード）の棚卸し。駅近・省エネ中古マンションの相場観を作る。</p>
+    </div>
+    <div class="tl-step">
+      <div class="tl-when">翌年 春</div>
+      <div class="tl-what">申告の正常化・所得を厚く</div>
+      <p class="tl-desc">会社員側の本来の収入水準が確定申告に反映。個人事業主側も事業実績を1期積み、借入枠を意識して所得を計上（節税より枠を優先）。</p>
+    </div>
+    <div class="tl-step">
+      <div class="tl-when">翌年〜</div>
+      <div class="tl-what">借入枠の確認・融資の感触取り</div>
+      <p class="tl-desc">金融機関で連帯債務（合算）の可否を確認。年収倍率どおりに枠が伸びるか、プロパー融資が開くかの審査感触を取る。</p>
+    </div>
+    <div class="tl-step">
+      <div class="tl-when">枠確定後</div>
+      <div class="tl-what">物件の実査・名義/持分設計</div>
+      <p class="tl-desc">都心40分圏で駅近80㎡・省エネ適合の中古を実査。控除は使い切れる側に寄せた持分を税理士・司法書士と確定。</p>
+    </div>
+    <div class="tl-step goal">
+      <div class="tl-when">枠が希望に到達した段階</div>
+      <div class="tl-what">購入</div>
+      <p class="tl-desc">希望物件を取得。可能ならプロパー低金利で。固定で行くなら子育てプラス/Sで当初金利を圧縮。</p>
+    </div>
+  </div>
+  <p class="src">出典: 工程2・3の「待つ」推奨。詳細は第3部。</p>
+</section>
+
+<!-- 2-7 -->
+<section class="block">
+  <h3>2-7 次アクション &amp; 意思決定フロー</h3>
+  <p class="lead">結論を覆しうる<span class="hl">「要確認」を先に潰す</span>。下のYES/NOで「待つ」か「見直す」かが分岐する。</p>
+
+  <p class="figcap">図N｜意思決定フロー（2段ツリー）— 第1分岐＝待つ/見直す ／ 第2分岐＝プロパー開く/開かない</p>
+  <div class="tree">
+    <div class="tnode">第1分岐｜居住は10年程度（永住未定）で、今すぐ買う必要はないか？</div>
+    <div class="tedge">▼</div>
+    <div class="tbranch">
+      <div class="tbox t-yes">
+        <span class="yn">YES＝待つ（推奨ルート）</span>
+        <h5>1〜2年待って枠を広げる</h5>
+        <p>賃貸で待機し、申告所得を正常化して枠を広げる。立地を譲らない駅近中古マンションを基準線に。<b>↓さらに第2分岐へ</b><br><span style="color:var(--green);font-weight:700">→ 枠は 2-1 ／ 物件は 2-5</span></p>
+      </div>
+      <div class="tbox t-no">
+        <span class="yn">条件変化なら見直し</span>
+        <h5>今フラット35で固定 / 永住前提で購入</h5>
+        <p>金利が想定超で急騰し続ける、家賃が上昇局面に入る、または永住に傾くなら、今固定する防御価値が上がり購入が再浮上。立地は最優先。<br><span style="color:var(--amber);font-weight:700">→ 居住年数・家賃は 2-2 ／ 金利は 1-1</span></p>
+      </div>
+    </div>
+    <div class="tedge" style="margin-top:14px">「YES＝待つ」を選んだら ▼</div>
+    <div class="tnode" style="background:#234373">第2分岐｜事業を2〜3期積み、プロパー融資（変動1%台）は開くか？</div>
+    <div class="tedge">▼</div>
+    <div class="tbranch">
+      <div class="tbox t-yes">
+        <span class="yn">YES</span>
+        <h5>プロパーへ切替・枠優先</h5>
+        <p>低金利で枠が拡大し生涯利息も大きく改善しうる。事業主側の申告は厚くして枠最大化、控除は会社員側で確保。変動の金利上昇リスクは許容前提。<br><span style="color:var(--green);font-weight:700">→ 月々・利息差は 2-3</span></p>
+      </div>
+      <div class="tbox t-no">
+        <span class="yn">NO</span>
+        <h5>フラット35のまま・中間解</h5>
+        <p>全期間固定で金利を確定。事業主側の申告を所得制限内に収め、夫婦両方で控除を取る中間解の価値が上がる。<br><span style="color:var(--amber);font-weight:700">→ 控除設計は 2-4 ／ 枠は 2-1</span></p>
+      </div>
+    </div>
+  </div>
+  <p class="note" style="margin:12px 0 0">「YES＝待つ」を選んだら、下のチェックリストの<b>着手順</b>に進む（上から潰す）。</p>
+
+  <p class="figcap" style="margin-top:20px">着手順チェックリスト（図N「待つ」を選んだ後）</p>
+  <ul class="check">
+    <li><span class="cb"></span>会社員側が通年フル就労し、翌春の申告に本来の収入水準が反映されるか（就労開始時期の確定）<span class="pill pill-high">最重要</span></li>
+    <li><span class="cb"></span>個人事業主側の申告所得をどう作るか（節税で圧縮すると枠が下がる二律背反を踏まえて方針決定）<span class="pill pill-high">最重要</span></li>
+    <li><span class="cb"></span>連帯債務（夫婦合算）が組めるかを金融機関に確認（組めないと枠拡大の前提が崩れる）<span class="pill pill-high">最重要</span></li>
+    <li><span class="cb"></span>他借入（車・カード・事業性）の棚卸し（あると枠が縮む）<span class="pill pill-mid">高</span></li>
+    <li><span class="cb"></span>プロパー融資の審査感触（必要期数・通る見込み）。開かなければ控除の中間解へ<span class="pill pill-mid">高</span></li>
+    <li><span class="cb"></span>住むエリアの家賃トレンド（横ばいか上昇か）を確認し、賃貸/購入の損益分岐を見直す<span class="pill pill-mid">高</span></li>
+    <li><span class="cb"></span>税理士・FPに名義/持分・経費按分・贈与特例の最終確認<span class="pill pill-mid">高</span></li>
+  </ul>
+  <p class="src">出典: 「結論を覆しうる要確認事項」の一般化。詳細は第3部。</p>
+</section>
+
+
+<!-- ============================== PART 3 ============================== -->
+<span class="part-label p3">PART 3 ／ エビデンス</span>
+<h2 class="part-title">第3部 前提と出典
+  <small>主要数値の根拠と「確定／推定／要確認」の区分。最新値・制度は2026年6月時点で確認。</small>
+</h2>
+
+<section class="block">
+  <h3>3-1 区分の凡例</h3>
+  <p style="margin:4px 0 12px;font-size:.92rem">
+    <span class="badge b-fix">確定</span> 公的・一次資料に基づく客観事実
+    <span class="badge b-est">推定</span> 試算・仮置き（モデルケース）
+    <span class="badge b-chk">要確認</span> 個別の状況により専門家確認が必要
+  </p>
+
+  <table class="srctable">
+    <thead><tr><th>主要数値・論点</th><th>区分</th><th>出典 / 根拠</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>フラット35 最頻金利 3.21%（9割以下）/ 3.32%（9割超）・初の3%超・2か月で+0.82pt</td>
+        <td><span class="badge b-fix">確定</span></td>
+        <td><a href="https://www.simulation.jhf.go.jp/flat35/kinri/index.php/rates/top">住宅金融支援機構 フラット35金利</a>／<a href="https://www.nikkei.com/article/DGXZQOFL012SSTR00C26A6000000/">日経「初の3%超」</a></td>
+      </tr>
+      <tr>
+        <td>日銀 政策金利1.0%（31年ぶり高水準）・長期金利2.7%前後</td>
+        <td><span class="badge b-fix">確定</span></td>
+        <td><a href="https://www.boj.or.jp/about/press/kaiken_2026/kk260126a.pdf">日銀総裁会見</a>／<a href="https://www.nikkei.com/marketdata/quote/JP10YT/">新発10年国債利回り</a></td>
+      </tr>
+      <tr>
+        <td>フラット50 3.38%（最長50年・長期優良/認定管理のみ・申込44歳未満・LTV60%）</td>
+        <td><span class="badge b-fix">確定</span></td>
+        <td><a href="https://www.flat35.com/loan/lineup/flat50/index.html">フラット50公式</a>／<a href="https://www.jhf.go.jp/loan/yushi/info/flat50.html">機構フラット50</a></td>
+      </tr>
+      <tr>
+        <td>民間超長期（住信SBI 50年・変動0.95%/固定／ARUHI 40年超+0.15%）</td>
+        <td><span class="badge b-fix">確定</span></td>
+        <td><a href="https://www.netbk.co.jp/contents/kinri-homeloan/">住信SBI金利</a>／<a href="https://www.sbiaruhi.co.jp/product/your_select/">ARUHIユアセレクト</a></td>
+      </tr>
+      <tr>
+        <td>長期化の月返済↓/総利息↑（1,000万あたり・35年→50年で月-0.5万・総利息 約666万→約1,074万＝約6割増）</td>
+        <td><span class="badge b-est">推定</span></td>
+        <td>工程7試算（元利均等・全期間据置）</td>
+      </tr>
+      <tr>
+        <td><b>借入枠＝審査年収×約7倍</b>（フラット35・35年・固定3%台・返済負担率35%での結果的な目安）。45年で約8倍、50年で約9倍に上昇。低金利ほど倍率は伸びる</td>
+        <td><span class="badge b-est">推定</span></td>
+        <td>工程2試算（<a href="https://www.flat35.com/loan/lineup/flat35/conditions/index.html">負担率35%</a>・元利均等での逆算／フラット35は実金利＝審査金利<a href="https://diamond-fudosan.jp/articles/-/129914">解説</a>）。倍率は金利・年数・他借入で変動</td>
+      </tr>
+      <tr>
+        <td><b>個人事業主の借入枠は申告所得で決まる</b>（直近申告が薄いと枠が出ない／所得を厚く申告すれば枠は実力相応に伸びる＝節税と借入枠の二律背反）。他借入が年100万あれば枠は約2,000万縮む</td>
+        <td><span class="badge b-est">推定</span></td>
+        <td>工程2・工程5（フラット35は確定申告所得で審査・総返済負担率に全借入を合算<a href="https://jhffaq.jp/jhffaq/flat35/web/knowledge3222.html">機構FAQ</a>）。申告方針は税理士確認</td>
+      </tr>
+      <tr>
+        <td>首都圏 新築マンション 9,383万（5年連続最高・前年+15.3%）／供給過去最少</td>
+        <td><span class="badge b-fix">確定</span></td>
+        <td><a href="https://www.nikkei.com/article/DGXZQOUC204F80Q6A420C2000000/">日経</a>／不動産経済研究所</td>
+      </tr>
+      <tr>
+        <td>中古マンション 成約㎡単価が73か月ぶり前年割れ・在庫増・売出と成約の乖離。在庫の平均売出価格 約6,643万円（前年比+30.3%）／在庫件数45,804件（3か月連続増）</td>
+        <td><span class="badge b-fix">確定</span></td>
+        <td><a href="https://www.bloomberg.com/jp/news/articles/2026-03-23/TBRHDCT9NJLZ00">Bloomberg（都心中古頭打ち）</a>／東京カンテイ系・不動産経済研</td>
+      </tr>
+      <tr>
+        <td>都心40分圏（山手線北東部）相場・再開発（西日暮里/三河島/赤羽台）・流動性</td>
+        <td><span class="badge b-est">推定</span></td>
+        <td><a href="https://mansionvalue.jp/market/13/line/2172/2172240">マンションバリュー</a>／<a href="https://www.sumai-surfin.com/columns/mansion-knowledge/redevelopment-nishinippori">住まいサーフィン</a>（各駅相場は更新時点で変動）</td>
+      </tr>
+      <tr>
+        <td>長期見通し3シナリオ（金利・価格）・人口減/空き家による二極化</td>
+        <td><span class="badge b-est">推定</span></td>
+        <td>工程1統合（社人研推計／野村・三井住友DSアセット見通し）</td>
+      </tr>
+      <tr>
+        <td>賃貸vs購入（純コスト/総支出・中立・モデル試算）：10年 購入約3,668万 vs 賃貸2,500万（+1,168万）／20年 購入約5,959万 vs 賃貸5,000万（+959万）／永住は完済後 年210万差・約42年目に純現金で逆転＋無借金資産が残る</td>
+        <td><span class="badge b-est">推定</span></td>
+        <td>工程6試算に一本化（諸費用率・固定資産税・管理修繕・出口価格は推定）。永住は出口価格を使わない総支出ベースで評価</td>
+      </tr>
+      <tr>
+        <td><b>家賃上昇シナリオ（年+1.5%）</b>：横ばい比で累積家賃が10年≈+170万・35年≈+2,500万多くなる。上昇局面では購入（特に永住）が相対的に有利になり、固定（フラット35）は住居費がインフレに守られる</td>
+        <td><span class="badge b-est">推定</span></td>
+        <td>年+1.5%複利のモデル試算（家賃月20万＝年240万を起点）。実際の賃料トレンドはエリア・需給で変動するため要確認</td>
+      </tr>
+      <tr>
+        <td>プロパー（変動1%台）vs フラット（固定3%台）の生涯利息差はモデル試算で数千万規模</td>
+        <td><span class="badge b-est">推定</span></td>
+        <td>工程2・3試算（プロパー審査通過が前提）</td>
+      </tr>
+      <tr>
+        <td>住宅ローン控除：合計所得2,000万超は対象外／安定収入側が主役。<b>借入限度額＝物件性能の枠</b>（ZEH 4,500万・長期優良/低炭素 5,000万）</td>
+        <td><span class="badge b-fix">確定</span></td>
+        <td><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1211-1.htm">国税庁No.1211-1</a></td>
+      </tr>
+      <tr>
+        <td>住宅ローン控除：<b>使い切り残高＝控除を取る側の納税額（所得税＋住民税）の天井</b>。限度額とは別物で所得前提に依存</td>
+        <td><span class="badge b-est">推定</span></td>
+        <td><a href="https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/090929.html">総務省（住民税控除上限97,500円）</a>＋納税額試算（工程5）</td>
+      </tr>
+      <tr>
+        <td>住宅取得等資金贈与の非課税（省エネ住宅で1,000万＋基礎控除110万＝最大1,110万/人・2026年末まで）</td>
+        <td><span class="badge b-fix">確定</span></td>
+        <td><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/sozoku/4508.htm">国税庁No.4508</a></td>
+      </tr>
+      <tr>
+        <td>団信・連帯債務・在宅作業部屋の事業按分・名義/持分の最終設計</td>
+        <td><span class="badge b-chk">要確認</span></td>
+        <td>金融機関・税理士・司法書士（個別の状況による）</td>
+      </tr>
+      <tr>
+        <td>物件タイプ：10年=駅近中古マンション◎／永住=戸建て評価上昇／出口価格の劣化曲線</td>
+        <td><span class="badge b-est">推定</span></td>
+        <td>工程4・6（流動性 マンション約3か月/戸建約6か月・新築プレミアム10-15%等）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="disclaimer">
+    <b>不確実性の明示:</b> 本レポートは一般的なモデルケースに基づく市場分析であり、特定の個人への助言ではない。登場する金額・条件は説明のための一般化した目安であり、実在の特定世帯を指すものではない。不動産価格・金利・家賃は不確実であり、本レポートは2026年6月時点の制度・市況に基づく。諸費用率・固定資産税・管理修繕・出口価格・按分割合・家賃上昇率は【推定】を含み、物件確定・税務確定で大きく動きうる。金利は毎月改定・急騰局面のため、各シナリオは楽観/中立/悲観の幅で読むこと。<b>個別の借入可否・税務・物件選びは、金融機関・税理士・FPの確認を前提とする。</b>
+  </div>
+</section>
+
+<p style="text-align:center;color:#9aa3b4;font-size:.78rem;margin:34px 0 0">
+  東京都内・近郊の家探し戦略マーケットレポート ／ 一般公開版 ／ 基準時点 2026年6月
+</p>
+
+</div>
+</body>
+</html>
